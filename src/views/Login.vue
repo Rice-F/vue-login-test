@@ -11,6 +11,9 @@
 
 <script>
 export default {
+  name: '',
+  created () {
+  },
   data () {
     return {
       model: {
@@ -60,8 +63,26 @@ export default {
     }
   },
   methods: {
-    handleSubmit () {
-
+    handleSubmit (evt) {
+      // 阻止表单提交默认行为
+      evt.preventDefault()
+      // 登录请求
+      this.$store.dispatch('login', this.model)
+        .then(code => {
+          if (code) {
+            // 登录成功 重定向至跳转登录页前的页面/首页
+            const path = this.$route.query.redirect || '/'
+            this.$router.push(path)
+          }
+        })
+        .catch(err => {
+          const toast = this.$createToast({
+            time: 2000,
+            txt: err.message || err.response.data.response || '登录失败',
+            type: 'error'
+          })
+          toast.show()
+        })
     }
   }
 }
