@@ -12,6 +12,7 @@ export default new Vuex.Store({
   },
   actions: {
     login ({ commit }, user) {
+      console.log(user)
       return us.login(user)
         .then(res => {
           const { code, token } = res.data
