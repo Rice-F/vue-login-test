@@ -6,15 +6,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isLogin: false
+    isLogin: !!localStorage.getItem('token')
   },
   mutations: {
+    setLoginState (state, b) {
+      state.isLogin = b
+    }
   },
   actions: {
     login ({ commit }, user) {
-      console.log(user)
       return us.login(user)
         .then(res => {
+          console.log(res)
           const { code, token } = res.data
           if (code) {
             // 登录成功 保存登录状态 保存token

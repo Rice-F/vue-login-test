@@ -4,8 +4,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Cube from 'cube-ui'
+import Interceptor from './interceptor'
 
 Vue.config.productionTip = false
+Interceptor()
 
 Vue.use(Cube)
 

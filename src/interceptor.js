@@ -1,8 +1,8 @@
 // 请求 响应 拦截器
 import axios from 'axios'
 export default function () {
-  // 设置请求拦截器
-  axios.interceptors.rquest.use(config => {
+  // 请求拦截
+  axios.interceptors.request.use(config => {
     // 获取token
     const token = localStorage.getItem('token')
     if (token) {
@@ -10,5 +10,10 @@ export default function () {
       config.headers.token = token
     }
     return config
+  })
+
+  // 响应拦截
+  axios.interceptors.response.use(response => {
+    // console.log(response)
   })
 }

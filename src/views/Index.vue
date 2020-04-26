@@ -3,6 +3,7 @@
     <div class="nav">
       <router-link to="/live">直播</router-link>
       <router-link to="/cart">购物车</router-link>
+      <button v-if="$store.state.isLogin" @click="logout">注销</button>
     </div>
   </div>
 </template>
@@ -13,6 +14,11 @@ export default {
   data () {
     return {
 
+    }
+  },
+  methods: {
+    logout () {
+      this.$store.dispatch('logout')
     }
   }
 }
