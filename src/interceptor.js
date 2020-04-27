@@ -7,7 +7,7 @@ export default function (vm) {
     const token = localStorage.getItem('token')
     if (token) {
       // 添加token请求头
-      config.headers.token = token
+      config.headers.Authorization = `Bearer ${token}`
     }
     return config
   })
@@ -18,7 +18,7 @@ export default function (vm) {
   }, err => {
     if (err.response.status === 401) {
       // token过期  登录失败
-      vm.$store.diapatch('logout')
+      vm.$store.dispatch('logout')
       vm.$router.push('/login')
     }
     return Promise.reject(err)
