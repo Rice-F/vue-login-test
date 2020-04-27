@@ -17,7 +17,6 @@ export default new Vuex.Store({
     login ({ commit }, user) {
       return us.login(user)
         .then(res => {
-          console.log(res)
           const { code, token } = res.data
           if (code) {
             // 登录成功 保存登录状态 保存token
@@ -25,6 +24,9 @@ export default new Vuex.Store({
             localStorage.setItem('token', token)
           }
           return code
+        })
+        .catch(err => {
+          console.log(err)
         })
     },
     logout ({ commit }) {

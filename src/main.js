@@ -7,7 +7,6 @@ import Cube from 'cube-ui'
 import Interceptor from './interceptor'
 
 Vue.config.productionTip = false
-Interceptor()
 
 Vue.use(Cube)
 
@@ -16,3 +15,6 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+// 初始化拦截器
+Interceptor(Vue)
