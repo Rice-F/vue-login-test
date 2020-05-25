@@ -31,7 +31,7 @@ module.exports = {
 
         // 接口中间件
         function auth (req, res, next) {
-          if (req.headers.token) {
+          if (req.headers.authorization) {
             // 已登录
             next()
           } else {
