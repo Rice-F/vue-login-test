@@ -3,8 +3,11 @@
     <div class="nav">
       <router-link to="/live">直播</router-link>
       <router-link to="/cart">购物车</router-link>
-      <button v-if="$store.state.isLogin" @click="logout">注销</button>
     </div>
+    <button
+      v-if="$store.state.user.isLogin"
+      @click="logout"
+    >注销</button>
   </div>
 </template>
 

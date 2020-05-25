@@ -18,7 +18,9 @@ export default function (vm) {
   }, err => {
     if (err.response.status === 401) {
       // token过期  登录失败
+      // 清空localstorage 修改vuex登录状态isLogin
       vm.$store.dispatch('logout')
+      // 跳转登录页
       vm.$router.push('/login')
     }
     return Promise.reject(err)
