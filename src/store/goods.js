@@ -16,7 +16,7 @@ export default ({
   getters: {
     goods: state => {
       return state.keys.map(key => state.goodsInfo[key])
-        .redecu((prev, next) => prev.concat(next), [])
+        .reduce((prev, next) => prev.concat(next), [])
     }
   },
   actions: {

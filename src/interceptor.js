@@ -13,15 +13,16 @@ export default function (vm) {
   })
 
   // 响应拦截
-//   axios.interceptors.response.use(response => {
-//     return response
-//   }, err => {
-//     if (err.response.status === 401) {
-//       console.log(vm)
-//       // token过期  登录失败
-//       vm.$store.dispatch('logout')
-//       vm.$router.push('/login')
-//     }
-//     return Promise.reject(err)
-//   })
+  axios.interceptors.response.use(response => {
+    return response
+  }, err => {
+    if (err.response.status === 401) {
+      // token过期  登录失败
+      // 清空localstorage 修改vuex登录状态isLogin
+      vm.$store.dispatch('logout')
+      // 跳转登录页
+      vm.$router.push('/login')
+    }
+    return Promise.reject(err)
+  })
 }

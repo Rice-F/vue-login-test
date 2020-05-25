@@ -10,10 +10,10 @@ Vue.config.productionTip = false
 
 Vue.use(Cube)
 
-new Vue({
+const APP = new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
 // 初始化拦截器
-Interceptor(Vue)
+Interceptor(APP)
