@@ -29,7 +29,7 @@ export default {
   padding: 20px 10px;
   .nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
   }
 }
 </style>
