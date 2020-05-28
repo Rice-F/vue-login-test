@@ -17,19 +17,22 @@
         </router-link>
       </cube-slide-item>
     </cube-slide>
-
     <!-- 商品列表 -->
     <good-list :data="goods"></good-list>
+    <!--  -->
+    <!-- <add-operation></add-operation> -->
   </div>
 </template>
 
 <script>
 import { mapState, mapActions, mapGetters } from 'vuex'
 import GoodList from '../components/GoodList'
+// import AddOperation from '../components/AddOperation'
 export default {
   name: '',
   components: {
     GoodList
+    // AddOperation
   },
   data () {
     return {
@@ -54,7 +57,10 @@ export default {
 
 <style lang="scss" scoped>
 #index {
+  width: 100%;
+  height: 200px;
   padding: 20px 10px;
+  background: #eee;
   .nav {
     display: flex;
     justify-content: space-around;
